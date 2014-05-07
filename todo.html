@@ -2,7 +2,7 @@
 
 <head>
 	<title>Test todo</title>
-
+	<script src="removeTask.js"></script>
 	<script>
 
 	function addTodo()
@@ -14,9 +14,13 @@
 		node.setAttribute("name",parseInt(cnt) + 1);
 
 		var textnode=document.createTextNode(document.getElementById("todoTask").value);
+		var btn=document.createElement("button");
+		btn.setAttribute('value',"-");
+		//btn.setAttribute('onclick',removeTask(parseInt(cnt) + 1));
+		//textnode.appendChild(btn);
+		node.innerHTML="<button onclick='removeTask("+(parseInt(cnt) + 1)+")'>-</button>"+document.getElementById("todoTask").value;
+		//node.appendChild(textnode);
 		
-		node.appendChild(textnode);
-
 		document.getElementById("todoList").appendChild(node);
 
 
@@ -25,26 +29,31 @@
 	}
 
 	</script>
+	
 
 </head>
 
 <body>
+		<div style="position:fixed">
 		Todo Application :
 
-		<form>
+		<br/>
 			<input type="hidden" name="counter" id="counter" value="0" />
 			<input type="text" name="todoTask" id="todoTask" placeholder="Write your task here" required="required" />
 			<button onclick="addTodo()"> + </button>
-		</form>
-
+		</div>
+			<br/>
+			<br/>
+			<br/>
 		Task List :
 		<hr />
 
 		
-
+		<div style="overflow:scroll;height:400px" >
 		<ul id="todoList">
+			
 		</ul>
-
+		</div>
 
 </body>
 
