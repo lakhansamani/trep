@@ -1,18 +1,51 @@
 <html>
 
 <head>
-<title>Test todo</title>
+	<title>Test todo</title>
 
-<script type="javascript">
+	<script>
 
-</script>
+	function addTodo()
+	{
+		var node=document.createElement("LI");
+		var cnt=document.getElementById("counter").value;
+
+		node.setAttribute("id",parseInt(cnt) + 1);
+		node.setAttribute("name",parseInt(cnt) + 1);
+
+		var textnode=document.createTextNode(document.getElementById("todoTask").value);
+		
+		node.appendChild(textnode);
+
+		document.getElementById("todoList").appendChild(node);
+
+
+		document.getElementById("counter").value = parseInt(cnt) + 1;
+		document.getElementById("todoTask").value = "";
+	}
+
+	</script>
 
 </head>
 
 <body>
-<form name="form1">
-This will be the place with todo list
-</form>
+		Todo Application :
+
+		<form>
+			<input type="hidden" name="counter" id="counter" value="0" />
+			<input type="text" name="todoTask" id="todoTask" placeholder="Write your task here" required="required" />
+			<button onclick="addTodo()"> + </button>
+		</form>
+
+		Task List :
+		<hr />
+
+		
+
+		<ul id="todoList">
+		</ul>
+
+
 </body>
 
 </html>
