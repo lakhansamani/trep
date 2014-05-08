@@ -2,7 +2,7 @@
 
 <head>
 	<title>Test todo</title>
-	<script src="removeTask.js"></script>
+	<!--<script src="removeTask.js"></script>-->
 	<script>
 
 	function addTodo()
@@ -16,20 +16,32 @@
 		var textnode=document.createTextNode(document.getElementById("todoTask").value);
 		var btn=document.createElement("button");
 		btn.setAttribute('value',"-");
-		//btn.setAttribute('onclick',removeTask(parseInt(cnt) + 1));
-		//textnode.appendChild(btn);
-		node.innerHTML="<button onclick='removeTask("+(parseInt(cnt) + 1)+")'>-</button>"+document.getElementById("todoTask").value;
-		//node.appendChild(textnode);
-		
+
+		node.innerHTML="<input type='checkbox' onclick='completeTask("+(parseInt(cnt) + 1)+")'/>"+document.getElementById("todoTask").value;
+
+
 		document.getElementById("todoList").appendChild(node);
 
 
 		document.getElementById("counter").value = parseInt(cnt) + 1;
 		document.getElementById("todoTask").value = "";
 	}
+	function completeTask(id){
+		var a=document.getElementById(id);
+
+		if(a.checked){
+			console.log("unchecked");
+			a.checked = false;
+			a.removeAttribute("style");
+		}else{
+			a.checked=true;
+			a.setAttribute('style','text-decoration:line-through');
+		}
+
+	}
 
 	</script>
-	
+
 
 </head>
 
@@ -48,10 +60,10 @@
 		Task List :
 		<hr />
 
-		
+
 		<div style="overflow:scroll;height:400px" >
 		<ul id="todoList">
-			
+
 		</ul>
 		</div>
 
