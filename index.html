@@ -2,23 +2,36 @@
   <head>
     <title>My To Do list</title>
     <link rel="stylesheet" type="text/css" href="css/core.css">
+    <link rel="stylesheet" href="css/main.css" />
+
   </head>
   <body>
-    <center>
-    <div style="width:50%">
-      <h1>My To do App</h1>
+
+    <div style="width:50%" class="main">
+
+        <center><h1>My TODO App</h1></center>
+
+
       <hr/>
-      <br/>
-      <form>
+      <div class="panel">
+      <div class="panel-head">
+      <center>
+        <form>
         <input type="hidden" name="counter" id="counter" value="0" />
-        <input type="text" id="taskname" placeholder="write task name"/><input type="button" id="add-task" value="+">
+        <input type="text" id="taskname" class="input" placeholder=" Write task name"/>
+        <input type="button" id="add-task" value="+" class="btn btn-t">
       </form>
-      <h3>My Task List</h3>
+    </center>
+      </div>
+      <div class="panel-body">
+
       <ul id="task-list" style="list-style-type: none;">
-          
+
       </ul>
     </div>
-    </center>
+    </div>
+    </div>
+
     <script src="js/jquery-1.11.1.js"></script>
     <script src="js/main.js"></script>
 
